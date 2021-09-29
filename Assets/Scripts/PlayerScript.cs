@@ -5,24 +5,26 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    public float vel = 5;
+    public float vel = 10;
+    private float speed = 0;
     public float jumpSpeed = 10;
-    Rigidbody rb;
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
+
+    void FixedUpdate()
+    {
+        transform.Translate(0, 0, speed * Time.deltaTime, Space.Self);
+    }
     // Update is called once per frame
     void Update()
     {
         Ray r = new Ray(transform.position, Vector3.down);
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-        float speed = vel;
-        
-
+        speed = 0;
         RaycastHit collide;
         if (Physics.Raycast(r, out collide, 1))
         {
@@ -32,14 +34,28 @@ public class PlayerScript : MonoBehaviour
                     Jump();
             }
         }
-        if (Input.GetKey(KeyCode.LeftShift))
-            speed = speed * 3;
-        rb.velocity = new Vector3(-h * speed,rb.velocity.y,-v * speed);
-
+        Movement();
     }
 
     void Jump()
     {
         rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+    void Movement()
+    {  
+        if (Input.GetKey(KeyCode.UpArrow))
+            speed -= vel;
+        else if (Input.GetKey(KeyCode.DownArrow))
+            speed += vel;
+        if (Input.GetKey(KeyCode.LeftArrow))
+            rb.transform.Rotate(0, -0.5f, 0);
+        else if (Input.GetKey(KeyCode.RightArrow))
+            rb.transform.Rotate(0, 0.5f, 0);
     }
 }
