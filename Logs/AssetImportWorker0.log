@@ -147,3 +147,25 @@ Received Import Request.
 Start importing Assets/Scripts/GameManager.cs using Guid(5ad5d88dcae2f1a44a3e0769661232e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7cfbc2e8784250ac7c43c58478ca47a') in 0.003811 seconds
   Import took 0.006173 seconds .
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001296 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 24.63 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.986 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1531 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 106.0 MB.
+System memory in use after: 106.1 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 2215.
+Total: 1.645000 ms (FindLiveObjects: 0.148200 ms CreateObjectMapping: 0.048500 ms MarkObjects: 1.326700 ms  DeleteObjects: 0.120700 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
