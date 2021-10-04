@@ -16,5 +16,6 @@ public class Animations : MonoBehaviour
     void Update()
     {
         animator.SetFloat("Speed", this.transform.parent.GetComponent<PlayerScript>().GetSpeed());
+        animator.SetBool("isJump", this.transform.parent.GetComponent<PlayerScript>().GetJump());
     }
 }
